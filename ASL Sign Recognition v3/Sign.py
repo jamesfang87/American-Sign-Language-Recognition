@@ -11,15 +11,6 @@ class Sign:
         self.examples: list[SignInfo] = examples
         self.confidence_score = None
 
-    @staticmethod
-    def __distance(s1: np.ndarray, s2: np.ndarray) -> float:
-        base_feature_weights = [2, 2, 1, 1]
-        all_feature_weights = [2, 2, 1, 1, 2, 2, 1, 1, 2, 2, 1, 1]
-
-        selected = base_feature_weights if len(s1) == 4 else all_feature_weights
-        euclidean_dist = euclidean(s1, s2, selected)
-        return euclidean_dist
-
     def calc_distance(self, other: SignInfo) -> float:
         """
         "distance" between this sign and another calculated with DTW
