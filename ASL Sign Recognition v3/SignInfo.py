@@ -44,8 +44,8 @@ class SignInfo:
 
         # np array of hand positions (center) of the dominant hand given in (x, y)
         self.dom_hand_pos = get_centers(dom)
-        self.dom_hand_pos = normalize_length(self.dom_hand_pos, 21)
-        self.dom_hand_pos = ((self.dom_hand_pos - face_center) / scaling_dist)[:-1] * 2.0
+        self.dom_hand_pos = normalize_length(self.dom_hand_pos, 20)
+        self.dom_hand_pos = ((self.dom_hand_pos - face_center) / scaling_dist) * 2.0
 
         # np array of unit vectors describing the change in hand positions for dominant hand
         unnormalized_dom_hand_motion = np.diff(self.dom_hand_pos, axis=0)
@@ -56,8 +56,8 @@ class SignInfo:
         if self.num_hands == 2:
             # np array of hand positions (center) of the non-dominant hand given in (x, y)
             self.ndom_hand_pos = get_centers(ndom)
-            self.ndom_hand_pos = normalize_length(self.ndom_hand_pos, 21)
-            self.ndom_hand_pos = ((self.ndom_hand_pos - face_center) / scaling_dist)[:-1] * 1.4
+            self.ndom_hand_pos = normalize_length(self.ndom_hand_pos, 20)
+            self.ndom_hand_pos = ((self.ndom_hand_pos - face_center) / scaling_dist) * 1.4
 
             # np array unit vectors describing the change in hand positions for non-dominant hand
             unnormalized_ndom_hand_motion = np.diff(self.ndom_hand_pos, axis=0)
@@ -66,8 +66,7 @@ class SignInfo:
             self.ndom_hand_motion[np.isnan(self.ndom_hand_motion)] = 0
 
             # np array of distance between dominant and non-dominant hands given in (x, y)
-            min_length = min(len(self.dom_hand_pos), len(self.ndom_hand_pos))
-            self.relative_pos = (self.dom_hand_pos[:min_length] - self.ndom_hand_pos[:min_length]) * 1.2
+            self.relative_pos = (self.dom_hand_pos - self.ndom_hand_pos) * 1.2
 
             # np array of unit vectors describing the change in relative_pos
             unnormalized_relative_pos_change = np.diff(self.relative_pos, axis=0)
@@ -94,16 +93,16 @@ class SignInfo:
         # base_features contains dom_hand_pos and dom_hand_motion
         # it will always be present no matter the handedness of the sign
         self.base_features = np.concatenate((
-            self.dom_hand_pos[:len(self.dom_hand_pos) - 1],
+            self.dom_hand_pos[:-1],
             self.dom_hand_motion
         ), axis=1)
 
         if self.num_hands == 2:
             # features which depend on the sign being 2-handed
             self.two_handed_features = np.concatenate((
-                self.ndom_hand_pos[:len(self.ndom_hand_pos) - 1],
+                self.ndom_hand_pos[:-1],
                 self.ndom_hand_motion,
-                self.relative_pos[:len(self.relative_pos) - 1],
+                self.relative_pos[:-1],
                 self.relative_pos_change
             ), axis=1)
 
