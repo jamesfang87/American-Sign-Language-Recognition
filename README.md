@@ -4,6 +4,7 @@ Versions 1 is a pure implementation of Wang et al. 2010. Version 2 has code for 
 # Future Work
 Currently, I am working both on deubugging version 2 to ensure no mistakes are present in the method and creating version 3, which will include subsequence matching where videos of signs are no longer perfectly cropped, instead including parts where the signer raises and/or lowers their hand before/after performing the sign. In version 4 and 5, we plan to experiment with different models: 4 will include variations on the "vanila" DTW used in versions 1-2 to help increase accuracy while version 5 will experiement with GCNN, which have been shown to perform well on the WLASL dataset.
 
+# Citations
 Haijing Wang, Alexandra Stefan, Sajjad Moradi, Vassilis Athitsos, Carol Neidle, and Farhad Kamangar.
 **A System for Large Vocabulary Sign Search.**
 ***Workshop on Sign, Gesture and Activity (SGA), September 2010.***
