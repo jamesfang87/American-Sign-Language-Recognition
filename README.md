@@ -8,3 +8,7 @@ Currently, I am working both on deubugging version 2 to ensure no mistakes are p
 Haijing Wang, Alexandra Stefan, Sajjad Moradi, Vassilis Athitsos, Carol Neidle, and Farhad Kamangar.
 **A System for Large Vocabulary Sign Search.**
 ***Workshop on Sign, Gesture and Activity (SGA), September 2010.***
+
+Vassilis Athitsos, Carol Neidle, Stan Sclaroff, Joan Nash, Alexandra Stefan, Quan Yuan, and Ashwin Thangali.
+**The American Sign Language Lexicon Video Dataset.**
+***IEEE Workshop on Computer Vision and Pattern Recognition for Human Communicative Behavior Analysis (CVPR4HB), June 2008.***
