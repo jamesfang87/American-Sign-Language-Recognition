@@ -1,5 +1,5 @@
 # Version Information
-Note that the version numbers were recently changed with the completion of what was version 4.
+Note that the version numbers were recently changed with the completion of what was version 4 (now version 2).
 
 Versions 1 is a pure implementation of Wang et al. 2010. Version 2 has code for testing with video input; in other words, locations of hands and the face are gathered from a video of a sign. We found that accuracy significantly decreases with video input, although there may be reasons for this other than imperfection of hand detectors such as a different scaling system (mediapipe reports normalized locations while the matlab files used as examples for signs are unnormalized or bugs in the code. However, the former reason, a different scaling system, is dubious to me due to the normalization of translation described in the paper. However, this normalization was created to account for minor differences in translation length due to small differences in distance from the camera; the difference between normalized values from 0.0 to 1.0 and pixel values is much is much greater than any difference that could arise from sitting further or closer to the camera.
 
