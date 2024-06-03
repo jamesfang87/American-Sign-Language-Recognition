@@ -60,8 +60,8 @@ class VideoReader:
             pose_result = self.pose_detector.process(frame)
             face_result = self.face_detector.process(frame)
 
-            right_hand_positions.append(pose_result.pose_landmarks.landmark[PoseLandmark.RIGHT_WRIST])
-            left_hand_positions.append(pose_result.pose_landmarks.landmark[PoseLandmark.LEFT_WRIST])
+            right_hand_positions.append(pose_result.pose_landmarks.landmark[PoseLandmark.RIGHT_INDEX])
+            left_hand_positions.append(pose_result.pose_landmarks.landmark[PoseLandmark.LEFT_INDEX])
             face_positions.append(pose_result.pose_landmarks.landmark[PoseLandmark.NOSE])
 
             frame_height, frame_width, _ = frame.shape
